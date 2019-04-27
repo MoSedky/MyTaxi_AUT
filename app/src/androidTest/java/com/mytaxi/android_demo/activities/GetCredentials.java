@@ -10,15 +10,15 @@ import java.util.regex.Pattern;
 public class GetCredentials {
     private String generated_username=null;
     private String generated_password=null;
-    public String[] credentials;
+    public String[] credentials= new String[2];
 
-    public Boolean ReadCredentials() throws Exception {
+    public String[] ReadCredentials() throws Exception {
         URL url = new URL("https://randomuser.me/api/?seed=a1f30d446f820665");
         HttpURLConnection con = (HttpURLConnection) url.openConnection();
 
         int status = con.getResponseCode();
         if (status != 200) {
-            return false;
+            return null;
         } else {
             generated_username= null;
             generated_password= null;
@@ -39,22 +39,32 @@ public class GetCredentials {
                 generated_username=matcher_username.group(1);
                 generated_password=matcher_password.group(1);
             }
+            credentials[0]=generated_username;
+            credentials[1]=generated_password;
 
             System.out.println(generated_username);
             System.out.println(generated_password);
 
 //           // in.close();
-            return true;
+            return credentials;
         }
 
 
 
     }
-    public String[] passCredentials()
-    {
-        credentials[0]=generated_username;
-        credentials[1]=generated_password;
-        return credentials;
-    }
+//    public String[] passCredentials() throws Exception {
+//        ReadCredentials();
+//        if(ReadCredentials())
+//        {
+//            credentials[0]=generated_username;
+//            credentials[1]=generated_password;
+//            return credentials;
+//        }
+//        else
+//        {
+//            return null;
+//        }
+//
+//    }
 }
 
