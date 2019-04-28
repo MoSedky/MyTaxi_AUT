@@ -13,6 +13,7 @@ import android.support.test.uiautomator.UiSelector;
 
 import org.junit.Before;
 import org.junit.Rule;
+import org.junit.Test;
 import org.junit.runner.RunWith;
 
 
@@ -40,7 +41,7 @@ public class LaunchAppTest {
 
     }
 
-
+    @Test
     public void a_shouldDisplayPermissionRequestDialogAtStartup() throws Exception{
         org.junit.Assume.assumeTrue(allowButton.exists());
         assertViewWithTextIsVisible(device, "ALLOW");

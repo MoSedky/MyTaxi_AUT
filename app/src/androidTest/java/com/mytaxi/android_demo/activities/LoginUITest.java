@@ -8,6 +8,7 @@ import android.support.test.runner.AndroidJUnit4;
 import com.mytaxi.android_demo.R;
 
 import org.junit.Rule;
+import org.junit.Test;
 import org.junit.runner.RunWith;
 
 import static android.support.test.espresso.Espresso.onView;
@@ -38,7 +39,7 @@ public class LoginUITest extends ObjectRepo{
 //            GrantPermissionRule.grant(
 //                    "android.permission.ACCESS_FINE_LOCATION");
 
-
+    @Test
     public void loginUITest() {
 
         title=identifybyId(R.id.action_bar);
